@@ -159,7 +159,7 @@ RUN groupadd -g ${PGID} laradock && \
 # Set Timezone
 #####################################
 
-ENV TZ CST
+ENV TZ Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #####################################
