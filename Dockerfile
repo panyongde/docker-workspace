@@ -760,9 +760,9 @@ RUN echo "" >> ~/.bashrc && \
 
 # Clean up
 USER root
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    npm config set python /usr/bin/python2.7
+# RUN apt-get clean && \
+#     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+#     npm config set python /usr/bin/python2.7
 
 # Set default work directory
 WORKDIR /var/www
