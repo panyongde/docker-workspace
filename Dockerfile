@@ -693,6 +693,7 @@ RUN apt-get update && \
     && touch /var/run/supervisor.sock \
     && chmod 777 /var/run/supervisor.sock \
     && service supervisor restart \
+    && supervisord -c /etc/supervisord.conf \
 
     # 用完包管理器后安排打扫卫生可以显著的减少镜像大小
     && apt-get clean \
