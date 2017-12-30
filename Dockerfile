@@ -677,11 +677,17 @@ RUN echo "" >> ~/.bashrc && \
 #####################################
 
 USER root
-RUN  apt-get update \
-  && apt-get -y install python python-pip python-dev build-essential  \
-  && pip install --upgrade pip  \
-  && pip install --upgrade virtualenv \
-  rm -rf /var/lib/apt/lists/*
+# RUN  apt-get update \
+#   && apt-get -y install python python-pip python-dev build-essential  \
+#   && pip install --upgrade pip  \
+#   && pip install --upgrade virtualenv \
+#   rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \  
+    apt-get install -y python \
+    python-dev \
+    python-pip && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN apt-get -y install supervisor
 
