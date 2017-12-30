@@ -676,14 +676,10 @@ RUN echo "" >> ~/.bashrc && \
 # PYTHON:
 #####################################
 
-# ARG INSTALL_PYTHON=false
-# ENV INSTALL_PYTHON ${INSTALL_PYTHON}
-# RUN if [ ${INSTALL_PYTHON} = true ]; then \
-#   apt-get update \
-#   && apt-get -y install python python-pip python-dev build-essential  \
-#   && pip install --upgrade pip  \
-#   && pip install --upgrade virtualenv \
-# ;fi
+RUN  apt-get update \
+  && apt-get -y install python python-pip python-dev build-essential  \
+  && pip install --upgrade pip  \
+  && pip install --upgrade virtualenv \
 
 #####################################
 # ImageMagick:
