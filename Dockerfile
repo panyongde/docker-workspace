@@ -676,6 +676,7 @@ RUN echo "" >> ~/.bashrc && \
 # PYTHON:
 #####################################
 
+USER root
 RUN  apt-get update \
   && apt-get -y install python python-pip python-dev build-essential  \
   && pip install --upgrade pip  \
