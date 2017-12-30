@@ -676,6 +676,7 @@ RUN echo "" >> ~/.bashrc && \
 # PYTHON:
 #####################################
 
+USER root
 # ARG INSTALL_PYTHON=false
 # ENV INSTALL_PYTHON ${INSTALL_PYTHON}
 # RUN if [ ${INSTALL_PYTHON} = true ]; then \
