@@ -689,7 +689,9 @@ RUN apt-get update && \
     python-pip && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get -y install supervisor
+RUN apt-get clean && \
+    apt-get update && \
+    apt-get -y install supervisor
 
 #####################################
 # ImageMagick:
