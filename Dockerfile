@@ -676,22 +676,14 @@ RUN echo "" >> ~/.bashrc && \
 # PYTHON:
 #####################################
 
-USER root
-# RUN  apt-get update \
+# ARG INSTALL_PYTHON=false
+# ENV INSTALL_PYTHON ${INSTALL_PYTHON}
+# RUN if [ ${INSTALL_PYTHON} = true ]; then \
+#   apt-get update \
 #   && apt-get -y install python python-pip python-dev build-essential  \
 #   && pip install --upgrade pip  \
 #   && pip install --upgrade virtualenv \
-#   rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && \  
-    apt-get install -y python \
-    python-dev \
-    python-pip && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN apt-get clean && \
-    apt-get update && \
-    apt-get install -y supervisor
+# ;fi
 
 #####################################
 # ImageMagick:
