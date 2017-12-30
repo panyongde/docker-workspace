@@ -691,7 +691,7 @@ RUN apt-get update && \
 
 RUN apt-get clean && \
     apt-get update && \
-    apt-get -y install supervisor
+    apt-get install -y supervisor
 
 #####################################
 # ImageMagick:
