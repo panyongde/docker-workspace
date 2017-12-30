@@ -111,9 +111,9 @@ ENV PUID 1000
 ENV PGID 1000
 
 RUN groupadd -g ${PGID} laradock && \
-    useradd -u ${PUID} -g laradock -m laradock && \
-    apt-get update -yqq && \
-    apt-get install -y python2.7
+    useradd -u ${PUID} -g laradock -m laradock
+    # apt-get update -yqq && \
+    # apt-get install -y python2.7
 
 #####################################
 # SOAP:
@@ -684,6 +684,16 @@ RUN echo "" >> ~/.bashrc && \
 #   && pip install --upgrade pip  \
 #   && pip install --upgrade virtualenv \
 # ;fi
+RUN apt-get update && \  
+    apt-get install -y python \
+                       python-dev \
+                       python-pip \
+                       supervisor \
+    # 用完包管理器后安排打扫卫生可以显著的减少镜像大小
+    && apt-get clean \
+    && apt-get autoclean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+
 
 #####################################
 # ImageMagick:
